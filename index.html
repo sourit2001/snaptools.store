@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snaptools.store</title>
+    <style>
+        /* 全局样式 - 苹果风格 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        /* 头部样式 */
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        h1 {
+            font-weight: 600;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #6e6e73;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 搜索区域 */
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #search-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 125, 250, 0.2);
+        }
+
+        /* 工具卡片容器 */
+        .tool-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* 工具卡片样式 */
+        .tool-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .tool-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 1px solid #e6e6e6;
+        }
+
+        .tool-content {
+            padding: 20px;
+        }
+
+        .tool-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .tool-description {
+            color: #6e6e73;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .tool-link {
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 15px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .visit-button {
+            background-color: #0071e3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%;
+        }
+
+        .visit-button:hover {
+            background-color: #0077ed;
+        }
+
+        /* 页脚样式 */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #6e6e73;
+            font-size: 0.9rem;
+            margin-top: 40px;
+            border-top: 1px solid #d2d2d7;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .tool-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tool-container {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            body {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部区域 -->
+    <header>
+        <h1>snaptools.store</h1>
+        <p>Curated collection of premium AI image editing tools to meet all your creative needs</p>
+    </header>
+    
+    <!-- 搜索区域 -->
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="search AI tools..." onkeyup="searchTools()">
+    </div>
+    
+    <!-- 主内容区 - 工具卡片列表 -->
+    <main class="tool-container">
+        <!-- BeFunky卡片 -->
+        <div class="tool-card">
+            <img src="https://via.placeholder.com/600x340/f0f0f0/666666?text=BeFunky" alt="BeFunky" class="tool-image">
+            <div class="tool-content">
+                <h2 class="tool-title">BeFunky</h2>
+                <p class="tool-description">A professional online photo editor offering powerful editing, collage making, and graphic design features. Create stunning images without professional skills.</p>
+                <a href="https://www.befunky.com/" class="tool-link" target="_blank">https://www.befunky.com/</a>
+                <button class="visit-button" onclick="window.open('https://www.befunky.com/', '_blank')">一键直达</button>
+            </div>
+        </div>
+
+        <!-- InsMind卡片 -->
+        <div class="tool-card">
+            <img src="https://via.placeholder.com/600x340/f0f0f0/666666?text=InsMind" alt="InsMind" class="tool-image">
+            <div class="tool-content">
+                <h2 class="tool-title">InsMind</h2>
+                <p class="tool-description">An AI-powered image editing platform providing intelligent photo retouching and creative design capabilities. Easily create professional-grade image effects through advanced AI technology.</p>
+                <a href="https://www.insmind.com/" class="tool-link" target="_blank">https://www.insmind.com/</a>
+                <button class="visit-button" onclick="window.open('https://www.insmind.com/', '_blank')">一键直达</button>
+            </div>
+        </div>
+
+        <!-- AI Face Swapper卡片 -->
+        <div class="tool-card">
+            <img src="https://via.placeholder.com/600x340/f0f0f0/666666?text=AI+Face+Swapper" alt="AI Face Swapper" class="tool-image">
+            <div class="tool-content">
+                <h2 class="tool-title">AI Face Swapper</h2>
+                <p class="tool-description">A specialized AI tool focusing on face replacement in photos. Features high-precision facial recognition technology and natural blending effects for seamless face swapping.</p>
+                <a href="https://aifaceswapper.io/" class="tool-link" target="_blank">https://aifaceswapper.io/</a>
+                <button class="visit-button" onclick="window.open('https://aifaceswapper.io/', '_blank')">一键直达</button>
+            </div>
+        </div>
+
+        <!-- Airbrush卡片 -->
+        <div class="tool-card">
+            <img src="https://via.placeholder.com/600x340/f0f0f0/666666?text=Airbrush" alt="Airbrush" class="tool-image">
+            <div class="tool-content">
+                <h2 class="tool-title">Airbrush</h2>
+                <p class="tool-description">An AI-powered photo editing application offering professional-grade retouching and intelligent beautification features. One-click portrait enhancement with automatic light and color adjustment.</p>
+                <a href="https://airbrush.com/" class="tool-link" target="_blank">https://airbrush.com/</a>
+                <button class="visit-button" onclick="window.open('https://airbrush.com/', '_blank')">一键直达</button>
+            </div>
+        </div>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2023 snaptools.store | Curated premium AI image processing tools from around the world</p>
+    </footer>
+    
+    <!-- JavaScript代码 -->
+    <script>
+        // 搜索功能
+        function searchTools() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const toolCards = document.querySelectorAll('.tool-card');
+            
+            toolCards.forEach(card => {
+                const title = card.querySelector('.tool-title').textContent.toLowerCase();
+                const description = card.querySelector('.tool-description').textContent.toLowerCase();
+                
+                if (title.includes(searchInput) || description.includes(searchInput)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 图片加载错误处理
+        document.addEventListener('DOMContentLoaded', () => {
+            const images = document.querySelectorAll('.tool-image');
+            images.forEach(img => {
+                img.onerror = function() {
+                    this.src = 'https://via.placeholder.com/600x340/f0f0f0/666666?text=图片加载失败';
+                };
+            });
+        });
+    </script>
+</body>
+</html> 
